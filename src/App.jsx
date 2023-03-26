@@ -1,17 +1,17 @@
 import React from 'react'
 import { Typography, AppBar, Button, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from '@mui/material'
 import { PhotoCamera } from '@mui/icons-material'
+import { makeStyles } from '@mui/styles';
 
 
-// const useStyles = makeStyles((theme) => ({
-// 	container:{
-// 		backgroundColor : theme.palette.background.paper,
-// 		padding: theme.spacing(8,0,6)
-// 	}
-// }))
+const useStyles = makeStyles((theme) => ({
+	container: {
+		backgroundColor: "#FFF",
+	}
+}))
 
 const App = () => {
-	// const classes = useStyles()
+	const classes = useStyles()
 	return (
 		<>
 			<CssBaseline />
@@ -24,8 +24,8 @@ const App = () => {
 				</Toolbar>
 			</AppBar>
 			<main>
-				<div style={{ padding: '28px 20px 26px' }}>
-					<Container maxWidth="sm" style={{ marginTop: '100px' }}>
+				<div style={{ padding: '28px 20px 26px' }} className={classes.container}>
+					<Container maxWidth="sm" style={{ marginTop: '50px' }}>
 						<Typography variant='h2' align='center' color='textPrimary' gutterBottom>
 							Photo Album
 						</Typography>
