@@ -6,7 +6,7 @@ const App = () => {
 	return (
 		<>
 			<CssBaseline />
-			<AppBar postion="relative">
+			<AppBar position="relative">
 				<Toolbar>
 					<PhotoCamera />
 					<Typography variant="h6">
@@ -17,12 +17,15 @@ const App = () => {
 			<main>
 				<div>
 					<Container maxWidth="sm">
-						<Typography variant='h2' align='center' color='textPrimary' gutterBottom gutterTop>
+						<Typography variant='h2' align='center' color='textPrimary' gutterBottom>
 							Photo Album
 						</Typography>
 						<Typography variant='h5' align='center' color='textSecondary' paragraph>
-							Hello everyone this is a photo album and I am trying to make this long as posible to it can wrap around
+							Hello everyone this is a photo album and I am trying to make this long as posible to it can wrap around...
 						</Typography>
+						<div>
+
+						</div>
 					</Container>
 				</div>
 			</main>
