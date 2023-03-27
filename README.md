@@ -1,6 +1,8 @@
 
 # Photo Album Template
 
+![image](https://user-images.githubusercontent.com/29153968/227816981-894cf930-40ee-4eb7-9713-e9e8faa480df.png)
+
 This is a simple photo album template built using React and Material UI. It allows you to easily create a photo album with a clean and modern design.
 
 ## Getting Started
