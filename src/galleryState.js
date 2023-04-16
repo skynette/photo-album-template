@@ -22,8 +22,8 @@ const gallerySlice = createSlice({
 			state.isLoading = true;
 		},
 		[fetchPhotos.fulfilled]: (state, action) => {
-			state.isLoading = false;
 			state.photos = action.payload;
+			state.isLoading = false;
 		},
 		[fetchPhotos.rejected]: (state) => {
 			state.isLoading = false;

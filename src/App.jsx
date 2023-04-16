@@ -1,13 +1,21 @@
-import React from 'react'
-import { Typography, AppBar, Button, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from '@mui/material'
+import React, { useEffect } from 'react'
+import { Typography, AppBar, Button, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container, CircularProgress } from '@mui/material'
 import { PhotoCamera } from '@mui/icons-material'
 import useStyles from './styles'
-
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchPhotos } from './galleryState'
+import LoadingScreen from './LoadingScreen'
 
 const App = () => {
+	const dispatch = useDispatch()
+	const photos = useSelector(store => store.gallery.photos)
+	const isLoading = useSelector(store => store.gallery.isLoading)
 	const classes = useStyles()
+
+	useEffect(() => {
+		dispatch(fetchPhotos())
+	}, [dispatch])
+
 	return (
 		<>
 			<CssBaseline />
@@ -44,33 +52,37 @@ const App = () => {
 						</div>
 					</Container>
 				</div>
-				<Container maxWidth="md" className={classes.cardGrid}>
-					<Grid container spacing={4}>
-						{cards.map((card) => (
-							<Grid item key={card} xs={12} sm={6} md={4}>
-								<Card className={classes.card}>
-									<CardMedia
-										image="https://source.unsplash.com/random"
-										title="Image Title"
-										className={classes.cardMedia}
-									/>
-									<CardContent className={classes.cardContent}>
-										<Typography gutterBottom variant="h5">
-											Heading
-										</Typography>
-										<Typography>
-											This is a media card, use this for content description
-										</Typography>
-									</CardContent>
-									<CardActions>
-										<Button size="small" color="primary">View</Button>
-										<Button size="small" color="primary">Edit</Button>
-									</CardActions>
-								</Card>
-							</Grid>
-						))}
-					</Grid>
-				</Container>
+				{isLoading ? (
+					<LoadingScreen />
+				) : (
+					<Container maxWidth="md" className={classes.cardGrid}>
+						<Grid container spacing={4}>
+							{photos.map((photo) => (
+								<Grid item key={photo.id} xs={12} sm={6} md={4}>
+									<Card className={classes.card}>
+										<CardMedia
+											image={photo.download_url}
+											title="Image Title"
+											className={classes.cardMedia}
+										/>
+										<CardContent className={classes.cardContent}>
+											<Typography gutterBottom variant="h5">
+												{photo.author}
+											</Typography>
+											<Typography>
+												This is a media card, use this for content description
+											</Typography>
+										</CardContent>
+										<CardActions>
+											<Button size="small" color="primary">View</Button>
+											<Button size="small" color="primary">Edit</Button>
+										</CardActions>
+									</Card>
+								</Grid>
+							))}
+						</Grid>
+					</Container>
+				)}
 				<Container>
 
 				</Container>
