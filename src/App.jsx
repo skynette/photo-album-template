@@ -34,7 +34,7 @@ const App = () => {
 							Photo Album
 						</Typography>
 						<Typography variant='h5' align='center' color='textSecondary' paragraph>
-							Hello everyone this is a photo album and I am trying to make this long as posible to it can wrap around.
+							Preserve your memories with our beautifully crafted photo album
 						</Typography>
 						<div className={classes.buttons}>
 							<Grid container spacing={2} justifyContent="center">
